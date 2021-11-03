@@ -27,7 +27,7 @@ class Permission extends AppModel
             ->pluck('is_allowed')
             ->first();
 
-        return $isAllowed === true;
+        return $isAllowed;
     }
 
     public function role() { return $this->belongsTo(Role::class); }
