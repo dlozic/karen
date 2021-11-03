@@ -7,7 +7,7 @@ use Modules\Core\Auth\Requests\AttemptLogin;
 use Modules\Core\Auth\Requests\AttemptRegister;
 use Illuminate\Support\Facades\Auth;
 use Modules\Core\Auth\Requests\AttemptToggleActivation;
-use Modules\Core\Auth\Requests\ChangePassword;
+use Modules\Core\Auth\Requests\AttemptChangePassword;
 
 class AuthController extends AppController
 {
@@ -38,7 +38,7 @@ class AuthController extends AppController
         return success($user);
     }
 
-    public function changePassword(ChangePassword $request, int $user)
+    public function changePassword(AttemptChangePassword $request, int $user)
     {
         $newPassword = $request->validated()['password'];
         $this->auth->changePassword($user, $newPassword);

@@ -4,7 +4,7 @@ namespace Modules\Core\Auth\Requests;
 
 use Modules\Core\AppFormRequest;
 
-class ChangePassword extends AppFormRequest
+class AttemptChangePassword extends AppFormRequest
 {
     public function authorize()
     {
