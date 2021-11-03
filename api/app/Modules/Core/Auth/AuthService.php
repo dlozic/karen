@@ -31,9 +31,12 @@ class AuthService extends AppService
     public function register($formData)
     {
         $formData['role_id'] = env('APP_ROLE_ID_ON_PUBLIC_REGISTER');
-        $user = $this->userRepository->create($formData);
-        $token = auth()->attempt($formData);
-        return compact('user', 'token');
+        $this->userRepository->create($formData);
+
+        return $this->login([
+            'email' => $formData['email'],
+            'password' => $formData['password']
+        ]);
     }
 
     public function changePassword($userId, $password)
