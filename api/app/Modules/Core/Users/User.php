@@ -37,7 +37,8 @@ class User extends AppModel implements
     ];
 
     protected $hidden = [
-        'password'
+        'password',
+        'deleted_at'
     ];
 
     public function role() { return $this->belongsTo(Role::class); }

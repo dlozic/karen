@@ -22,7 +22,7 @@ class AuthService extends AppService
 
         if(!$token) { throw new AuthException('auth.invalid_credentials'); }
 
-        $user = auth()->user();
+        $user = new AuthUser();
 
         return compact('user', 'token');
     }
