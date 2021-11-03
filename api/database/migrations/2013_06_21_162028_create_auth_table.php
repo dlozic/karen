@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateAuthTable extends Migration
@@ -17,6 +18,12 @@ class CreateAuthTable extends Migration
             $table->id();
             $table->string('name', 50)->unique();
         });
+
+        DB::table('acl_roles')->insert([
+            ['name' => 'admin'],
+            ['name' => 'user'],
+            ['name' => 'guest']
+        ]);
     }
 
     /**

@@ -13,5 +13,12 @@ class UserSeeder extends Seeder
         User::factory(['email' => 'admin@admin.com'])
             ->admin()
             ->create();
+
+        if(env('APP_ENV') !== 'production')
+        {
+            User::factory()
+                ->count(100)
+                ->create();
+        }
     }
 }

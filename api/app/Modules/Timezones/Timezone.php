@@ -10,6 +10,7 @@ class Timezone extends AppModel
     public $timestamps = false;
 
     protected $fillable = [
-        'name'
+        'name',
+        'description'
     ];
 }
