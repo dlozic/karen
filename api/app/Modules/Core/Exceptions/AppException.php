@@ -35,23 +35,22 @@ abstract class AppException extends Exception
 
     public function report()
     {
-        $ip = request()->ip();
-        $url = request()->url();
-        $errors = $this->errors;
-        $userId = auth()->user()->id ?? null;
-        $body = request()->input();
-
-        Log::error(compact(
-            'ip',
-            'url',
-            'errors',
-            'userId',
-            'body'
-        ));
+        Log::error($this->getRequestMetadata());
     }
 
     protected function addMessageToErrors($message)
     {
         $this->errors = array_merge($this->errors, ['messages' => [__("exceptions.{$message}")]]);
+    }
+
+    protected function getRequestMetadata()
+    {
+        return [
+            'ip' => request()->ip(),
+            'url' => request()->url(),
+            'errors' => $this->errors,
+            'userId' => auth()->user()->id ?? null,
+            'body' => request()->input()
+        ];
     }
 }
