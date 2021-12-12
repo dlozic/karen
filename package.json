@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "clean": "scripts/clean.sh",
-    "postinstall": "scripts/install.sh",
-    "start": "run-p start_api start_web",
-    "start_api": "scripts/start_api.sh",
-    "start_web": "scripts/start_web.sh",
-    "db_fresh": "scripts/db_fresh.sh",
-    "chmod": "chmod a+x scripts/*"
+    "postinstall": "chmod a+x scripts/* && scripts/install.sh",
+    "start": "npm-run-all -p api:start",
+    "api:start": "scripts/start.sh api",
+    "web:start": "scripts/start.sh web",
+    "db:fresh": "scripts/db.sh 'migrate:fresh --seed'",
+    "db:seed": "scripts/db.sh -- db:seed"
   },
   "dependencies": {
     "npm-run-all": "^4.1.5"
