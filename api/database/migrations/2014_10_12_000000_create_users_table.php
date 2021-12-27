@@ -26,11 +26,13 @@ class CreateUsersTable extends Migration
 
             /* timezone */
             $table->foreignId('timezone_id')
-                ->constrained('app_timezones');
+                ->constrained('app_timezones')
+                ->default(1);
 
             /* app language */
             $table->foreignId('language_id')
-                ->constrained('app_languages');
+                ->constrained('app_languages')
+                ->default(1);
 
             $table->softDeletes();
             $table->timestamps();
