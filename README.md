@@ -17,6 +17,12 @@ npm run db:fresh # run migrations and seed
 npm start
 ```
 
+## Running tests
+```bash
+vim .env         # edit the enviroment file
+npm run tests
+```
+
 ## Cleanup
 ```bash
 npm run clean

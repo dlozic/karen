@@ -5,8 +5,11 @@
     "clean": "scripts/clean.sh",
     "postinstall": "chmod a+x scripts/* && scripts/install.sh",
     "start": "npm-run-all -p api:start",
+    "tests": "npm-run-all -p api:test",
     "api:start": "scripts/start.sh api",
+    "api:test": "scripts/test.sh api",
     "web:start": "scripts/start.sh web",
+    "web:test": "scripts/test.sh web",
     "db:fresh": "scripts/db.sh 'migrate:fresh --seed'",
     "db:seed": "scripts/db.sh -- db:seed"
   },
