@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Cache;
 use Modules\Core\Acl\PermissionService;
 use Modules\Core\Exceptions\AuthException;
-use Modules\Core\Exceptions\NotFoundException;
 
 function success($data = [])
 {
